@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>México: Conociendo nuestro Estado</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/197/197397.png">
+</head>
+<body>
+    <!-- Navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#inicio" class="logo">
+                    <i class="fas fa-landmark"></i> México Educativo
+                </a>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#estado"><i class="fas fa-map"></i> Elementos del Estado</a></li>
+                    <li><a href="#mar"><i class="fas fa-water"></i> Mar Patrimonial</a></li>
+                    <li><a href="#poderes"><i class="fas fa-balance-scale"></i> Poderes del Estado</a></li>
+                    <li><a href="#secretarias"><i class="fas fa-building"></i> Secretarías</a></li>
+                    <li><a href="#cuestionario"><i class="fas fa-question-circle"></i> Cuestionario</a></li>
+                    <li><a href="#derechos"><i class="fas fa-handshake"></i> Derechos Humanos</a></li>
+                    <li><a href="excel.html"><i class="fas fa-chart-bar"></i> Gráficas de Excel</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección de bienvenida -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Conociendo México: Nación, Estado y Gobierno</h1>
+                <p>Un recurso educativo integral sobre la organización política, territorial y social de los Estados Unidos Mexicanos</p>
+                <a href="#estado" class="btn-hero">Explorar Contenido</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://getwallpapers.com/wallpaper/full/d/5/b/1316684-vertical-mexico-city-wallpaper-2050x1600.jpg" alt="México panorámico">
+            </div>
+        </section>
+
+        <!-- Elementos del Estado -->
+        <section id="estado" class="section">
+            <h2 class="section-title">Elementos del Estado Mexicano</h2>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3><i class="fas fa-ruler-combined"></i> Conceptos con medidas o distancias</h3>
+                    <ul>
+                        <li><strong>Superficie total:</strong> 1,964,375 km² (14° país más grande del mundo)</li>
+                        <li><strong>Límites territoriales:</strong> 4,301 km con EE.UU., 956 km con Guatemala y 193 km con Belice</li>
+                        <li><strong>Litorales:</strong> 11,122 km (9,330 km Pacífico y 2,805 km Golfo/Caribe)</li>
+                        <li><strong>Extensión marítima:</strong> Zona Económica Exclusiva de 3,149,920 km²</li>
+                        <li><strong>Población (2023):</strong> Aprox. 129 millones de habitantes</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-map-marked-alt"></i> Mapa Político</h3>
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <h4>Estados Unidos Mexicanos</h4>
+                            <div class="map-simplified">
+                                <div class="mexico-map">
+                                    <!-- Representación simplificada de México -->
+                                    <div class="north">Estados del Norte</div>
+                                    <div class="center">Estados del Centro</div>
+                                    <div class="south">Estados del Sur</div>
+                                    <div class="peninsula">Península de Yucatán</div>
+                                </div>
+                            </div>
+                            <p>32 entidades federativas: 31 estados y la Ciudad de México</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><i class="fas fa-university"></i> Tipos de Gobierno en las Entidades Federativas</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de Gobierno</th>
+                                <th>Características</th>
+                                <th>Ejemplos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Gobierno Republicano</td>
+                                <td>Sistema representativo, división de poderes, elecciones periódicas</td>
+                                <td>Todos los estados</td>
+                            </tr>
+                            <tr>
+                                <td>Gobierno Democrático</td>
+                                <td>Soberanía popular, participación ciudadana, pluralismo político</td>
+                                <td>Ciudad de México, Jalisco, Nuevo León</td>
+                            </tr>
+                            <tr>
+                                <td>Gobierno Federalista</td>
+                                <td>Autonomía estatal dentro de la federación, competencias compartidas</td>
+                                <td>Veracruz, Sonora, Puebla</td>
+                            </tr>
+                            <tr>
+                                <td>Gobierno Laico</td>
+                                <td>Separación Estado-Iglesia, libertad de culto</td>
+                                <td>Todos los estados (por mandato constitucional)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actividades en el Mar Patrimonial -->
+        <section id="mar" class="section bg-light">
+            <h2 class="section-title">Actividades en el Mar Patrimonial</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3><i class="fas fa-fish"></i> Pesca y Acuacultura</h3>
+                    <p>Explotación sustentable de recursos pesqueros, maricultura y acuicultura en zonas costeras.</p>
+                    <ul>
+                        <li>Pesca industrial y artesanal</li>
+                        <li>Cultivo de camarón, tilapia y ostión</li>
+                        <li>Zonas de veda y protección de especies</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-gas-pump"></i> Exploración y Explotación de Recursos</h3>
+                    <p>Extracción de petróleo y gas en plataformas marinas, y explotación de minerales del lecho marino.</p>
+                    <ul>
+                        <li>Pemex en la Sonda de Campeche</li>
+                        <li>Exploración de yacimientos profundos</li>
+                        <li>Investigación de nódulos polimetálicos</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-ship"></i> Navegación y Transporte</h3>
+                    <p>Comercio marítimo, transporte de carga y pasajeros, y puertos comerciales y turísticos.</p>
+                    <ul>
+                        <li>Puertos de Manzanillo, Veracruz y Lázaro Cárdenas</li>
+                        <li>Rutas comerciales internacionales</li>
+                        <li>Marina mercante nacional</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-sun"></i> Turismo y Recreación</h3>
+                    <p>Desarrollo turístico costero, deportes acuáticos, ecoturismo y cruceros.</p>
+                    <ul>
+                        <li>Destinos como Cancún, Los Cabos, Puerto Vallarta</li>
+                        <li>Buceo, snorkel y pesca deportiva</li>
+                        <li>Avistamiento de ballenas y tortugas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Poderes del Estado -->
+        <section id="poderes" class="section">
+            <h2 class="section-title">Poderes del Estado Mexicano</h2>
+            <div class="table-container">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Poder</th>
+                            <th>Función Principal</th>
+                            <th>Órganos Principales</th>
+                            <th>Representantes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ejecutivo Federal</strong></td>
+                            <td>Dirigir la administración pública federal y ejecutar las leyes</td>
+                            <td>Presidencia, Secretarías de Estado</td>
+                            <td>Presidente de la República</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Legislativo Federal</strong></td>
+                            <td>Crear, modificar y derogar leyes; aprobar el presupuesto</td>
+                            <td>Congreso de la Unión (Cámara de Diputados y Senado)</td>
+                            <td>Diputados y Senadores</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Judicial Federal</strong></td>
+                            <td>Administrar justicia e interpretar las leyes</td>
+                            <td>Suprema Corte, Tribunales, Juzgados</td>
+                            <td>Ministros, Magistrados, Jueces</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ejecutivo Estatal</strong></td>
+                            <td>Ejecutar leyes estatales y dirigir administración local</td>
+                            <td>Gobiernos estatales, Secretarías estatales</td>
+                            <td>Gobernadores</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Legislativo Estatal</strong></td>
+                            <td>Crear leyes estatales y aprobar presupuestos locales</td>
+                            <td>Congresos locales (unicamerales)</td>
+                            <td>Diputados locales</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Judicial Estatal</strong></td>
+                            <td>Administrar justicia en el ámbito estatal</td>
+                            <td>Tribunales Superiores de Justicia, juzgados locales</td>
+                            <td>Magistrados y jueces estatales</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Noticias sobre el Estado -->
+        <section id="noticias" class="section bg-light">
+            <h2 class="section-title">Noticias sobre el Estado Mexicano</h2>
+            <div class="news-container">
+                <div class="news-card">
+                    <div class="news-date">15 de junio, 2023</div>
+                    <h3>Reforma Electoral Aprobada en el Congreso</h3>
+                    <p>El Congreso de la Unión aprobó cambios al sistema electoral que modificarán la integración del INE y los procesos de elección.</p>
+                    <a href="#" class="news-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">10 de junio, 2023</div>
+                    <h3>Nuevo Tratado Comercial con la Unión Europea</h3>
+                    <p>México y la UE modernizaron su tratado de libre comercio, ampliando oportunidades para exportaciones agrícolas y manufactureras.</p>
+                    <a href="#" class="news-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-date">5 de junio, 2023</div>
+                    <h3>Suprema Corte Resuelve Controversia Constitucional</h3>
+                    <p>La SCJN resolvió a favor de la autonomía de los organismos autónomos en materia de transparencia y protección de datos.</p>
+                    <a href="#" class="news-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn" id="loadNews">Cargar más noticias</button>
+            </div>
+        </section>
+
+        <!-- Secretarías del Estado -->
+        <section id="secretarias" class="section">
+            <h2 class="section-title">Secretarías del Estado Mexicano</h2>
+            <p class="section-subtitle">Funciones, siglas e imágenes de las principales dependencias del gobierno federal</p>
+            
+            <div class="controls">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="social">Sociales</button>
+                <button class="filter-btn" data-filter="economica">Económicas</button>
+                <button class="filter-btn" data-filter="seguridad">Seguridad</button>
+            </div>
+            
+            <div class="secretarias-container" id="secretariasContainer">
+                <!-- Las secretarías se cargarán dinámicamente con JavaScript -->
+            </div>
+        </section>
+
+        <!-- Cuestionario -->
+        <section id="cuestionario" class="section bg-light">
+            <h2 class="section-title">Cuestionario sobre el Estado Mexicano</h2>
+            <p class="section-subtitle">preguntas de opción múltiple para evaluar tus conocimientos</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div class="quiz-progress">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="quiz-stats">
+                        <span id="currentQuestion">1</span> de <span id="totalQuestions">40</span>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h3 id="questionText">¿Cuál es la forma de gobierno de México según la Constitución?</h3>
+                </div>
+                
+                <div class="quiz-options" id="quizOptions">
+                    <!-- Las opciones se cargarán dinámicamente -->
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="btn" id="prevBtn">Anterior</button>
+                    <button class="btn" id="nextBtn">Siguiente</button>
+                    <button class="btn btn-submit" id="submitQuiz">Finalizar Cuestionario</button>
+                </div>
+                
+                <div class="quiz-result" id="quizResult">
+                    <!-- Los resultados se mostrarán aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Pirámide de Kelsen -->
+        <section id="kelsen" class="section">
+            <h2 class="section-title">Pirámide de Kelsen en el Ordenamiento Mexicano</h2>
+            <div class="pyramid-container">
+                <div class="pyramid">
+                    <div class="pyramid-level level-1">
+                        <span>Constitución Política de los Estados Unidos Mexicanos</span>
+                    </div>
+                    <div class="pyramid-level level-2">
+                        <span>Tratados Internacionales</span>
+                    </div>
+                    <div class="pyramid-level level-3">
+                        <span>Leyes Federales y Códigos Federales</span>
+                    </div>
+                    <div class="pyramid-level level-4">
+                        <span>Leyes Estatales y Constituciones Estatales</span>
+                    </div>
+                    <div class="pyramid-level level-5">
+                        <span>Reglamentos Federales y Estatales</span>
+                    </div>
+                    <div class="pyramid-level level-6">
+                        <span>Normas Oficiales Mexicanas y Disposiciones Administrativas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pyramid-explanation">
+                <p>La Pirámide de Kelsen representa la jerarquía normativa en México, donde cada nivel inferior deriva su validez del nivel superior. La Constitución es la norma suprema.</p>
+            </div>
+        </section>
+
+        <!-- Síntesis del Artículo 42 -->
+        <section id="constitucion" class="section bg-light">
+            <h2 class="section-title">Síntesis del Artículo 42 Constitucional</h2>
+            <div class="constitution-card">
+                <div class="constitution-header">
+                    <h3><i class="fas fa-file-contract"></i> Artículo 42 - Territorio Nacional</h3>
+                    <div class="constitution-article">Art. 42</div>
+                </div>
+                <div class="constitution-content">
+                    <p>El artículo 42 de la Constitución Política de los Estados Unidos Mexicanos define la composición del territorio nacional:</p>
+                    <ul>
+                        <li>Las partes integrantes de la Federación (los estados)</li>
+                        <li>El espacio comprendido dentro de los límites territoriales</li>
+                        <li>Las islas, incluyendo los arrecifes y cayos</li>
+                        <li>Las islas de Guadalupe y las Revillagigedo</li>
+                        <li>La plataforma continental y los zócalos submarinos</li>
+                        <li>Las aguas de los mares territoriales en la extensión y términos fijados por el derecho internacional</li>
+                        <li>El espacio situado sobre el territorio nacional, con la extensión y modalidades que establezca el propio derecho internacional</li>
+                    </ul>
+                    <p><strong>Importancia:</strong> Este artículo establece las bases jurídicas para la soberanía territorial de México, incluyendo su territorio insular y marítimo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tratado Internacional -->
+        <section id="tratado" class="section">
+            <h2 class="section-title">Tratado Internacional: T-MEC</h2>
+            <div class="treaty-card">
+                <div class="treaty-header">
+                    <h3><i class="fas fa-handshake"></i> Tratado entre México, Estados Unidos y Canadá (T-MEC)</h3>
+                </div>
+                <div class="treaty-content">
+                    <div class="treaty-info">
+                        <div class="info-item">
+                            <strong>Fecha de firma:</strong> 30 de noviembre de 2018
+                        </div>
+                        <div class="info-item">
+                            <strong>Entrada en vigor:</strong> 1 de julio de 2020
+                        </div>
+                        <div class="info-item">
+                            <strong>Países participantes:</strong> México, Estados Unidos, Canadá
+                        </div>
+                        <div class="info-item">
+                            <strong>Objetivo principal:</strong> Modernizar el Tratado de Libre Comercio de América del Norte (TLCAN) en vigor desde 1994
+                        </div>
+                    </div>
+                    <div class="treaty-details">
+                        <h4>Principales aspectos:</h4>
+                        <ul>
+                            <li>Nuevas reglas para el comercio digital</li>
+                            <li>Protección laboral reforzada</li>
+                            <li>Disposiciones sobre propiedad intelectual actualizadas</li>
+                            <li>Mecanismos de solución de controversias</li>
+                            <li>Incremento en el contenido regional para automóviles</li>
+                            <li>Acceso a mercados para productos agrícolas</li>
+                        </ul>
+                    </div>
+                    <p class="treaty-summary">El T-MEC representa el acuerdo comercial más importante para México, regulando el intercambio económico con sus principales socios comerciales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Derechos Humanos -->
+        <section id="derechos" class="section bg-light">
+            <h2 class="section-title">30 Derechos Humanos Universales</h2>
+            <p class="section-subtitle">Con ejemplos aplicados en el contexto mexicano</p>
+            
+            <div class="rights-controls">
+                <input type="text" id="rightsSearch" placeholder="Buscar derecho humano...">
+            </div>
+            
+            <div class="rights-container" id="rightsContainer">
+                <!-- Los derechos se cargarán dinámicamente -->
+            </div>
+            
+            <div class="text-center">
+                <button class="btn" id="loadMoreRights">Ver más derechos</button>
+            </div>
+        </section>
+
+        <!-- Leyes Federales y Estatales -->
+        <section id="leyes" class="section">
+            <h2 class="section-title">Leyes que Emanan del Artículo 42 Constitucional</h2>
+            <div class="laws-container">
+                <div class="law-card">
+                    <h3><i class="fas fa-gavel"></i> Leyes Federales</h3>
+                    <div class="law-list">
+                        <div class="law-item">
+                            <h4>Ley General de Bienes Nacionales</h4>
+                            <p>Regula la administración y disposición de los bienes que integran el patrimonio de la Federación.</p>
+                        </div>
+                        <div class="law-item">
+                            <h4>Ley Federal del Mar</h4>
+                            <p>Establece los derechos de México sobre sus mares territoriales, zona económica exclusiva y plataforma continental.</p>
+                        </div>
+                        <div class="law-item">
+                            <h4>Ley de Navegación y Comercio Marítimos</h4>
+                            <p>Regula las actividades de navegación en aguas mexicanas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="law-card">
+                    <h3><i class="fas fa-balance-scale"></i> Leyes Estatales</h3>
+                    <div class="law-list">
+                        <div class="law-item">
+                            <h4>Leyes de Hacienda Estatales</h4>
+                            <p>Regulan los bienes propiedad de cada entidad federativa.</p>
+                        </div>
+                        <div class="law-item">
+                            <h4>Leyes de Desarrollo Urbano Estatales</h4>
+                            <p>Regulan el uso del suelo y ordenamiento territorial en cada estado.</p>
+                        </div>
+                        <div class="law-item">
+                            <h4>Leyes de Protección Ambiental Estatales</h4>
+                            <p>Establecen normas para la conservación de los recursos naturales en cada entidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diferencias entre Oromi y Ñañhu -->
+        <section id="lenguas" class="section bg-light">
+            <h2 class="section-title">Diferencias entre Oromi y Ñañhu</h2>
+            <div class="languages-container">
+                <div class="language-card">
+                    <h3><i class="fas fa-comments"></i> Oromi (Wixárika/Huichol)</h3>
+                    <div class="language-info">
+                        <p><strong>Ubicación:</strong> Región de la Sierra Madre Occidental (Jalisco, Nayarit, Durango, Zacatecas)</p>
+                        <p><strong>Hablantes:</strong> Aproximadamente 47,000 personas</p>
+                        <p><strong>Familia lingüística:</strong> Yuto-nahua (corachol)</p>
+                        <p><strong>Características:</strong>
+                            <ul>
+                                <li>Lengua aglutinante</li>
+                                <li>Sistema de escritura basado en el alfabeto latino</li>
+                                <li>Cinco vocales y consonantes glotales</li>
+                                <li>Orden básico de la oración: Sujeto-Objeto-Verbo (SOV)</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="language-card">
+                    <h3><i class="fas fa-comments"></i> Ñañhu (Otomí)</h3>
+                    <div class="language-info">
+                        <p><strong>Ubicación:</strong> Región central de México (Hidalgo, Estado de México, Querétaro, Veracruz)</p>
+                        <p><strong>Hablantes:</strong> Aproximadamente 307,000 personas</p>
+                        <p><strong>Familia lingüística:</strong> Oto-mangue (otopame)</p>
+                        <p><strong>Características:</strong>
+                            <ul>
+                                <li>Lengua tonal (usa el tono para diferenciar significados)</li>
+                                <li>Sistema de escritura basado en el alfabeto latino</li>
+                                <li>Contraste entre vocales nasales y orales</li>
+                                <li>Orden básico de la oración: Verbo-Sujeto-Objeto (VSO)</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-table">
+                <h3>Comparativa entre Oromi y Ñañhu</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspecto</th>
+                            <th>Oromi (Wixárika)</th>
+                            <th>Ñañhu (Otomí)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Familia lingüística</td>
+                            <td>Yuto-nahua (corachol)</td>
+                            <td>Oto-mangue (otopame)</td>
+                        </tr>
+                        <tr>
+                            <td>Tonalidad</td>
+                            <td>No tonal</td>
+                            <td>Tonal (3 tonos)</td>
+                        </tr>
+                        <tr>
+                            <td>Orden de oración</td>
+                            <td>Sujeto-Objeto-Verbo (SOV)</td>
+                            <td>Verbo-Sujeto-Objeto (VSO)</td>
+                        </tr>
+                        <tr>
+                            <td>Número de hablantes</td>
+                            <td>~47,000</td>
+                            <td>~307,000</td>
+                        </tr>
+                        <tr>
+                            <td>Región principal</td>
+                            <td>Sierra Madre Occidental</td>
+                            <td>Altiplano Central</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sectores Productivos -->
+        <section id="sectores" class="section">
+            <h2 class="section-title">Sectores Productivos en México</h2>
+            
+            <div class="sectors-intro">
+                <p>Los sectores productivos se clasifican según el tipo de actividad económica que realizan:</p>
+            </div>
+            
+            <div class="sectors-container">
+                <div class="sector-card">
+                    <div class="sector-icon primary">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Sector Primario</h3>
+                    <p>Extracción y obtención de materias primas naturales</p>
+                    <div class="sector-examples">
+                        <h4>Ejemplos en México:</h4>
+                        <ul>
+                            <li>Agricultura: maíz, aguacate, berries</li>
+                            <li>Ganadería: bovino, porcino, avícola</li>
+                            <li>Minería: plata, cobre, oro</li>
+                            <li>Pesca: sardina, atún, camarón</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="sector-card">
+                    <div class="sector-icon secondary">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Sector Secundario</h3>
+                    <p>Transformación de materias primas en productos elaborados</p>
+                    <div class="sector-examples">
+                        <h4>Ejemplos en México:</h4>
+                        <ul>
+                            <li>Industria automotriz</li>
+                            <li>Industria aeroespacial</li>
+                            <li>Manufactura electrónica</li>
+                            <li>Industria alimentaria</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="sector-card">
+                    <div class="sector-icon tertiary">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Sector Terciario</h3>
+                    <p>Prestación de servicios a personas y empresas</p>
+                    <div class="sector-examples">
+                        <h4>Ejemplos en México:</h4>
+                        <ul>
+                            <li>Turismo</li>
+                            <li>Comercio</li>
+                            <li>Servicios financieros</li>
+                            <li>Servicios educativos y de salud</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <h3>Sectores Productivos en Hidalgo y su Comunidad</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sector</th>
+                            <th>Actividades en Hidalgo</th>
+                            <th>Ejemplos Comunitarios</th>
+                            <th>% PIB Estatal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primario</td>
+                            <td>Agricultura de maíz, frijol, alfalfa; ganadería bovina; minería de plata y oro</td>
+                            <td>Ejidos agrícolas, unidades de producción familiar, minas comunitarias</td>
+                            <td>8.2%</td>
+                        </tr>
+                        <tr>
+                            <td>Secundario</td>
+                            <td>Industria textil, automotriz, cementera, metalúrgica</td>
+                            <td>Talleres familiares, maquiladoras, cooperativas artesanales</td>
+                            <td>35.7%</td>
+                        </tr>
+                        <tr>
+                            <td>Terciario</td>
+                            <td>Comercio, turismo (Pueblos Mágicos), servicios públicos y financieros</td>
+                            <td>Pequeños comercios, servicios turísticos comunitarios, transporte local</td>
+                            <td>56.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Pirámide de Maslow -->
+        <section id="maslow" class="section bg-light">
+            <h2 class="section-title">Pirámide de Maslow y su Aplicación en México</h2>
+            <div class="maslow-container">
+                <div class="maslow-pyramid">
+                    <div class="maslow-level level-5">
+                        <span>Autorrealización</span>
+                        <p>Educación superior, desarrollo personal, creatividad</p>
+                    </div>
+                    <div class="maslow-level level-4">
+                        <span>Reconocimiento</span>
+                        <p>Estatus social, logros profesionales, respeto</p>
+                    </div>
+                    <div class="maslow-level level-3">
+                        <span>Afiliación</span>
+                        <p>Familia, amistades, relaciones íntimas, comunidad</p>
+                    </div>
+                    <div class="maslow-level level-2">
+                        <span>Seguridad</span>
+                        <p>Empleo estable, salud, propiedad, protección</p>
+                    </div>
+                    <div class="maslow-level level-1">
+                        <span>Fisiológicas</span>
+                        <p>Alimentación, agua, vivienda, descanso</p>
+                    </div>
+                </div>
+                
+                <div class="maslow-explanation">
+                    <h3>Aplicación en el contexto mexicano:</h3>
+                    <p>La Pirámide de Maslow representa la jerarquía de necesidades humanas. En México:</p>
+                    <ul>
+                        <li><strong>Nivel 1 (Fisiológicas):</strong> Programas como Prospera (antes Oportunidades) buscan satisfacer necesidades básicas.</li>
+                        <li><strong>Nivel 2 (Seguridad):</strong> Retos importantes en seguridad pública y empleo formal.</li>
+                        <li><strong>Nivel 3 (Afiliación):</strong> La familia y comunidades fuertes son características de la sociedad mexicana.</li>
+                        <li><strong>Nivel 4 (Reconocimiento):</strong> Importancia cultural del respeto y estatus social.</li>
+                        <li><strong>Nivel 5 (Autorrealización):</strong> Creciente acceso a educación superior y desarrollo personal.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Noticia sobre Inclusión -->
+        <section id="inclusion" class="section">
+            <h2 class="section-title">Noticia sobre Inclusión en México</h2>
+            <div class="news-featured">
+                <div class="news-featured-image">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Inclusión en México">
+                </div>
+                <div class="news-featured-content">
+                    <div class="news-category">Inclusión Social</div>
+                    <h3>México Avanza en Legislación para la Inclusión de Personas con Discapacidad</h3>
+                    <div class="news-date">20 de junio, 2023</div>
+                    <p>El Congreso de la Unión aprobó reformas a la Ley General para la Inclusión de las Personas con Discapacidad, estableciendo nuevas obligaciones para instituciones públicas y privadas para garantizar accesibilidad universal.</p>
+                    <p>Las reformas incluyen:</p>
+                    <ul>
+                        <li>Obligatoriedad de ajustes razonables en todos los espacios públicos</li>
+                        <li>Inclusión laboral con cuotas mínimas en empresas grandes</li>
+                        <li>Accesibilidad en plataformas digitales gubernamentales</li>
+                        <li>Fortalecimiento del sistema de educación inclusiva</li>
+                    </ul>
+                    <p>Según datos del INEGI, en México hay aproximadamente 7.1 millones de personas con alguna discapacidad, lo que representa el 5.7% de la población total. La nueva legislación busca eliminar barreras arquitectónicas, sociales y laborales que enfrenta este sector de la población.</p>
+                    <p>Organizaciones civiles han celebrado las reformas pero señalan que el reto principal será la implementación y el monitoreo efectivo del cumplimiento, especialmente en estados con menores recursos.</p>
+                    <a href="#" class="btn">Leer noticia completa</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-landmark"></i> México Educativo</h3>
+                <p></p>
+
+            </div>         
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 México Educativo.</p>
+        </div>
+    </footer>
+
+    <!-- Botón para ir al inicio -->
+    <button id="backToTop" title="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

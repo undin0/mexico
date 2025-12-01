@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficas - Encuesta de Necesidades</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/197/197397.png">
+    <style>
+        /* Estilos adicionales para la página de gráficas */
+        .charts-header {
+            padding: 120px 0 40px;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .charts-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .charts-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .filters-container {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+        }
+        
+        .chart-container {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+        }
+        
+        .chart-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+        
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .summary-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .summary-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .summary-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+        
+        .summary-label {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .back-link i {
+            margin-right: 8px;
+        }
+        
+        .data-table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th, .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .data-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .data-table tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-wrapper {
+                height: 300px;
+            }
+            
+            .summary-cards {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-landmark"></i> México Educativo
+                </a>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="index.html#estado"><i class="fas fa-map"></i> Elementos del Estado</a></li>
+                    <li><a href="index.html#mar"><i class="fas fa-water"></i> Mar Patrimonial</a></li>
+                    <li><a href="index.html#poderes"><i class="fas fa-balance-scale"></i> Poderes del Estado</a></li>
+                    <li><a href="index.html#secretarias"><i class="fas fa-building"></i> Secretarías</a></li>
+                    <li><a href="excel.html" class="active"><i class="fas fa-chart-bar"></i> Gráficas de Excel</a></li>
+                    <li><a href="index.html#cuestionario"><i class="fas fa-question-circle"></i> Cuestionario</a></li>
+                    <li><a href="index.html#derechos"><i class="fas fa-handshake"></i> Derechos Humanos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Encabezado de gráficas -->
+    <section class="charts-header">
+        <div class="container">
+            <h1>Análisis de Necesidades de la Población</h1>
+            <p>Visualización de datos de la encuesta sobre necesidades comunitarias. Datos recopilados de 96 encuestados.</p>
+        </div>
+    </section>
+
+    <main class="container" style="padding: 2rem 0;">
+        <!-- Enlace para regresar -->
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Volver a la página principal
+        </a>
+        
+        <!-- Tarjetas de resumen -->
+        <div class="summary-cards">
+            <div class="summary-card">
+                <i class="fas fa-users"></i>
+                <div class="summary-value" id="totalEncuestados">96</div>
+                <div class="summary-label">Total de encuestados</div>
+            </div>
+            
+            <div class="summary-card">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div class="summary-value" id="porcentajeNecesidades">92.7%</div>
+                <div class="summary-label">Reportan necesidades no cubiertas</div>
+            </div>
+            
+            <div class="summary-card">
+                <i class="fas fa-shield-alt"></i>
+                <div class="summary-value" id="areaPrincipal">Seguridad</div>
+                <div class="summary-label">Área que requiere más apoyo</div>
+            </div>
+            
+            <div class="summary-card">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="summary-value" id="tipoGrupoPrincipal">Educación</div>
+                <div class="summary-label">Tipo de grupo de apoyo más solicitado</div>
+            </div>
+        </div>
+
+        <!-- Gráfica 1: Distribución por sexo -->
+        <div class="chart-container">
+            <h2 class="chart-title">Distribución de Encuestados por Sexo</h2>
+            <div class="chart-wrapper">
+                <canvas id="sexChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                La mayoría de los encuestados son mujeres (66.7%), lo que indica una mayor participación femenina en la encuesta.
+            </p>
+        </div>
+
+        <!-- Gráfica 2: Distribución por edad -->
+        <div class="chart-container">
+            <h2 class="chart-title">Distribución de Encuestados por Rango de Edad</h2>
+            <div class="chart-wrapper">
+                <canvas id="ageChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                Los menores de 18 años son el grupo mayoritario (50%), seguido por el rango de 30-45 años (33.3%).
+            </p>
+        </div>
+
+        <!-- Gráfica 3: Situación residencial -->
+        <div class="chart-container">
+            <h2 class="chart-title">Situación Residencial Actual</h2>
+            <div class="chart-wrapper">
+                <canvas id="residenceChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                La mayoría vive con familiares/conocidos (44.8%), seguido por propietarios de vivienda (43.8%).
+            </p>
+        </div>
+
+        <!-- Gráfica 4: Áreas que requieren más apoyo -->
+        <div class="chart-container">
+            <h2 class="chart-title">Áreas que Requieren Más Apoyo (Respuestas múltiples)</h2>
+            <div class="chart-wrapper">
+                <canvas id="areasChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                La seguridad es el área más mencionada (35.4%), seguida por salud (22.9%) y educación (17.7%).
+            </p>
+        </div>
+
+        <!-- Gráfica 5: Urgencia de atender necesidades -->
+        <div class="chart-container">
+            <h2 class="chart-title">Nivel de Urgencia para Atender Necesidades</h2>
+            <div class="chart-wrapper">
+                <canvas id="urgencyChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                La mayoría califica la urgencia como alta (4 o 5), indicando una percepción de necesidad urgente en la comunidad.
+            </p>
+        </div>
+
+        <!-- Gráfica 6: Participación en actividades comunitarias -->
+        <div class="chart-container">
+            <h2 class="chart-title">Participación en Actividades Comunitarias</h2>
+            <div class="chart-wrapper">
+                <canvas id="participationChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                Aunque solo el 39.6% ha participado en actividades comunitarias, el 45.8% está interesado en participar.
+            </p>
+        </div>
+
+        <!-- Gráfica 7: Ingreso fijo mensual -->
+        <div class="chart-container">
+            <h2 class="chart-title">Hogares con Ingreso Fijo Mensual</h2>
+            <div class="chart-wrapper">
+                <canvas id="incomeChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                El 66.7% de los hogares cuenta con un ingreso fijo mensual, mientras que el 33.3% no tiene ingresos estables.
+            </p>
+        </div>
+
+        <!-- Gráfica 8: Dificultades para cubrir gastos básicos -->
+        <div class="chart-container">
+            <h2 class="chart-title">Dificultades para Cubrir Gastos Básicos</h2>
+            <div class="chart-wrapper">
+                <canvas id="expensesChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                El 31.3% reporta tener dificultades para cubrir gastos básicos, mientras que el 40.6% lo experimenta "algunas veces".
+            </p>
+        </div>
+
+        <!-- Gráfica 9: Tipos de grupos de interés -->
+        <div class="chart-container">
+            <h2 class="chart-title">Tipos de Grupos de Apoyo de Interés</h2>
+            <div class="chart-wrapper">
+                <canvas id="groupTypesChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                La educación es el tipo de grupo más solicitado (29.2%), seguido por cuidado del medio ambiente (25%).
+            </p>
+        </div>
+
+        <!-- Gráfica 10: Factores que dificultan la participación -->
+        <div class="chart-container">
+            <h2 class="chart-title">Factores que Dificultan la Participación Comunitaria</h2>
+            <div class="chart-wrapper">
+                <canvas id="barriersChart"></canvas>
+            </div>
+            <p class="text-center" style="margin-top: 1rem; color: var(--gray-color);">
+                La falta de tiempo es el principal obstáculo (64.6%), seguido por la falta de información (12.5%).
+            </p>
+        </div>
+
+        <!-- Tabla de datos resumida -->
+        <div class="chart-container">
+            <h2 class="chart-title">Resumen de Datos de la Encuesta</h2>
+            <div class="data-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Categoría</th>
+                            <th>Subcategoría</th>
+                            <th>Cantidad</th>
+                            <th>Porcentaje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2">Sexo</td>
+                            <td>Femenino</td>
+                            <td>64</td>
+                            <td>66.7%</td>
+                        </tr>
+                        <tr>
+                            <td>Masculino</td>
+                            <td>32</td>
+                            <td>33.3%</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="5">Rango de Edad</td>
+                            <td>Menos de 18</td>
+                            <td>48</td>
+                            <td>50.0%</td>
+                        </tr>
+                        <tr>
+                            <td>18-20</td>
+                            <td>6</td>
+                            <td>6.3%</td>
+                        </tr>
+                        <tr>
+                            <td>20-29</td>
+                            <td>8</td>
+                            <td>8.3%</td>
+                        </tr>
+                        <tr>
+                            <td>30-45</td>
+                            <td>32</td>
+                            <td>33.3%</td>
+                        </tr>
+                        <tr>
+                            <td>46-60</td>
+                            <td>6</td>
+                            <td>6.3%</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4">Situación Residencial</td>
+                            <td>Vive con familiares/conocidos</td>
+                            <td>43</td>
+                            <td>44.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Propietario/a de vivienda</td>
+                            <td>42</td>
+                            <td>43.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Renta o alquiler</td>
+                            <td>11</td>
+                            <td>11.5%</td>
+                        </tr>
+                        <tr>
+                            <td>Otros</td>
+                            <td>0</td>
+                            <td>0.0%</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Necesidades no cubiertas</td>
+                            <td>Sí</td>
+                            <td>89</td>
+                            <td>92.7%</td>
+                        </tr>
+                        <tr>
+                            <td>No</td>
+                            <td>7</td>
+                            <td>7.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Conclusiones -->
+        <div class="chart-container">
+            <h2 class="chart-title">Conclusiones del Análisis</h2>
+            <div class="conclusions">
+                <h3>Principales Hallazgos:</h3>
+                <ul>
+                    <li><strong>Percepción generalizada de necesidades no cubiertas:</strong> El 92.7% de los encuestados considera que hay necesidades no cubiertas en la comunidad.</li>
+                    <li><strong>Seguridad como principal preocupación:</strong> La seguridad es el área que requiere más apoyo según el 35.4% de las respuestas.</li>
+                    <li><strong>Alta urgencia percibida:</strong> La mayoría califica la urgencia de atender estas necesidades como 4 o 5 en una escala de 5.</li>
+                    <li><strong>Interés en participación comunitaria:</strong> Aunque solo el 39.6% ha participado en actividades comunitarias, el 45.8% está interesado en participar.</li>
+                    <li><strong>Falta de tiempo como principal barrera:</strong> El 64.6% identifica la falta de tiempo como el principal factor que dificulta la participación.</li>
+                    <li><strong>Vulnerabilidad económica:</strong> El 31.3% reporta dificultades para cubrir gastos básicos y el 33.3% no tiene ingreso fijo mensual.</li>
+                </ul>
+                
+                <h3>Recomendaciones:</h3>
+                <ol>
+                    <li>Priorizar programas de seguridad comunitaria y prevención del delito.</li>
+                    <li>Establecer grupos de apoyo enfocados en educación y cuidado del medio ambiente.</li>
+                    <li>Crear programas de apoyo económico para familias vulnerables.</li>
+                    <li>Ofrecer actividades comunitarias en horarios flexibles para superar la barrera de tiempo.</li>
+                    <li>Desarrollar campañas de información sobre recursos comunitarios disponibles.</li>
+                    <li>Fomentar la participación de hombres en actividades comunitarias (actualmente solo 33.3% de los encuestados).</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-landmark"></i> México Educativo</h3>
+                <p></p>
+
+            </div>         
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 México Educativo.</p>
+        </div>
+    </footer>
+
+
+    <!-- Botón para ir al inicio -->
+    <button id="backToTop" title="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Datos procesados del archivo Excel
+        const surveyData = {
+            total: 96,
+            sex: {
+                labels: ['Femenino', 'Masculino'],
+                data: [64, 32],
+                colors: ['#FF6384', '#36A2EB']
+            },
+            age: {
+                labels: ['Menos de 18', '18-20', '20-29', '30-45', '46-60'],
+                data: [48, 6, 8, 32, 6],
+                colors: ['#FF6384', '#FF9F40', '#FFCD56', '#4BC0C0', '#36A2EB']
+            },
+            residence: {
+                labels: ['Vive con familiares/conocidos', 'Propietario/a de vivienda', 'Renta o alquiler'],
+                data: [43, 42, 11],
+                colors: ['#FF6384', '#36A2EB', '#FFCE56']
+            },
+            areas: {
+                labels: ['Seguridad', 'Salud', 'Educación', 'Trabajo/Ingresos', 'Medio ambiente', 'Otros'],
+                data: [34, 22, 17, 16, 9, 5],
+                colors: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#C9CBCF']
+            },
+            urgency: {
+                labels: ['1 (Baja)', '2', '3', '4', '5 (Alta)'],
+                data: [6, 2, 16, 18, 54],
+                colors: ['#4BC0C0', '#36A2EB', '#FFCE56', '#FF9F40', '#FF6384']
+            },
+            participation: {
+                labels: ['Sí ha participado', 'No ha participado'],
+                data: [38, 58],
+                colors: ['#4BC0C0', '#FF6384']
+            },
+            income: {
+                labels: ['Sí tiene ingreso fijo', 'No tiene ingreso fijo'],
+                data: [64, 32],
+                colors: ['#4BC0C0', '#FF6384']
+            },
+            expenses: {
+                labels: ['Sí tiene dificultades', 'Algunas veces', 'No tiene dificultades'],
+                data: [30, 39, 27],
+                colors: ['#FF6384', '#FFCE56', '#4BC0C0']
+            },
+            groupTypes: {
+                labels: ['Educación', 'Cuidado del medio ambiente', 'Salud', 'Apoyo económico', 'Otros'],
+                data: [28, 24, 12, 10, 6],
+                colors: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
+            },
+            barriers: {
+                labels: ['Falta de tiempo', 'Falta de información', 'Cuidado de familiares', 'Otros/Ninguno'],
+                data: [62, 12, 6, 16],
+                colors: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }
+        };
+
+        // Función para crear gráficas
+        function createCharts() {
+            // Gráfica 1: Distribución por sexo
+            const sexCtx = document.getElementById('sexChart').getContext('2d');
+            new Chart(sexCtx, {
+                type: 'pie',
+                data: {
+                    labels: surveyData.sex.labels,
+                    datasets: [{
+                        data: surveyData.sex.data,
+                        backgroundColor: surveyData.sex.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${value} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 2: Distribución por edad
+            const ageCtx = document.getElementById('ageChart').getContext('2d');
+            new Chart(ageCtx, {
+                type: 'bar',
+                data: {
+                    labels: surveyData.age.labels,
+                    datasets: [{
+                        label: 'Cantidad de encuestados',
+                        data: surveyData.age.data,
+                        backgroundColor: surveyData.age.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Cantidad de encuestados'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Rango de edad'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 3: Situación residencial
+            const residenceCtx = document.getElementById('residenceChart').getContext('2d');
+            new Chart(residenceCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: surveyData.residence.labels,
+                    datasets: [{
+                        data: surveyData.residence.data,
+                        backgroundColor: surveyData.residence.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 4: Áreas que requieren más apoyo
+            const areasCtx = document.getElementById('areasChart').getContext('2d');
+            new Chart(areasCtx, {
+                type: 'bar',
+                data: {
+                    labels: surveyData.areas.labels,
+                    datasets: [{
+                        label: 'Número de menciones',
+                        data: surveyData.areas.data,
+                        backgroundColor: surveyData.areas.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Número de menciones'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Áreas de necesidad'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 5: Urgencia de atender necesidades
+            const urgencyCtx = document.getElementById('urgencyChart').getContext('2d');
+            new Chart(urgencyCtx, {
+                type: 'bar',
+                data: {
+                    labels: surveyData.urgency.labels,
+                    datasets: [{
+                        label: 'Número de respuestas',
+                        data: surveyData.urgency.data,
+                        backgroundColor: surveyData.urgency.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Número de respuestas'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Nivel de urgencia (1=baja, 5=alta)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 6: Participación en actividades comunitarias
+            const participationCtx = document.getElementById('participationChart').getContext('2d');
+            new Chart(participationCtx, {
+                type: 'pie',
+                data: {
+                    labels: surveyData.participation.labels,
+                    datasets: [{
+                        data: surveyData.participation.data,
+                        backgroundColor: surveyData.participation.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 7: Ingreso fijo mensual
+            const incomeCtx = document.getElementById('incomeChart').getContext('2d');
+            new Chart(incomeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: surveyData.income.labels,
+                    datasets: [{
+                        data: surveyData.income.data,
+                        backgroundColor: surveyData.income.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 8: Dificultades para cubrir gastos básicos
+            const expensesCtx = document.getElementById('expensesChart').getContext('2d');
+            new Chart(expensesCtx, {
+                type: 'pie',
+                data: {
+                    labels: surveyData.expenses.labels,
+                    datasets: [{
+                        data: surveyData.expenses.data,
+                        backgroundColor: surveyData.expenses.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 9: Tipos de grupos de interés
+            const groupTypesCtx = document.getElementById('groupTypesChart').getContext('2d');
+            new Chart(groupTypesCtx, {
+                type: 'bar',
+                data: {
+                    labels: surveyData.groupTypes.labels,
+                    datasets: [{
+                        label: 'Número de menciones',
+                        data: surveyData.groupTypes.data,
+                        backgroundColor: surveyData.groupTypes.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Número de menciones'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Tipo de grupo de apoyo'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfica 10: Factores que dificultan la participación
+            const barriersCtx = document.getElementById('barriersChart').getContext('2d');
+            new Chart(barriersCtx, {
+                type: 'bar',
+                data: {
+                    labels: surveyData.barriers.labels,
+                    datasets: [{
+                        label: 'Número de menciones',
+                        data: surveyData.barriers.data,
+                        backgroundColor: surveyData.barriers.colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Número de menciones'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Factores que dificultan la participación'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Cuando el DOM esté cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menú responsive
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    menuToggle.innerHTML = navMenu.classList.contains('active') 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
+            }
+            
+            // Cerrar menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Botón para ir al inicio
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.display = 'flex';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Crear gráficas
+            createCharts();
+        });
+    </script>
+</body>
+</html>
